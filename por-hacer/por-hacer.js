@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { rejects } = require('assert');
 
 let listadoporhacer = []
 
@@ -12,8 +11,20 @@ const guardarDB = () => {
 
 }
 
+const cargarDB = () => {
+
+    try {
+        listadoporhacer = require('../db/data.json');
+    } catch (error) {
+        listadoporhacer = [];
+    }
+
+}
+
 
 const crear = (descripcion) => {
+
+    cargarDB();
 
     let porhacer = {
         descripcion,
@@ -28,6 +39,14 @@ const crear = (descripcion) => {
 
 }
 
+const getListado = () => {
+
+    cargarDB();
+
+    return listadoporhacer;
+}
+
 module.exports = {
-    crear
+    crear,
+    getListado
 }
