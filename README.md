@@ -1,5 +1,6 @@
 ## ToDo Cristian 
 
-Es un programa en Node JS que permite realizar el lista de tareas
-de una persona
+Es un programa en Node JS que permite crear una lista de tareas
+
+
 
