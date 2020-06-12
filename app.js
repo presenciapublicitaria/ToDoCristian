@@ -35,6 +35,12 @@ switch (comando) {
 
         break;
 
+    case 'borrar':
+
+        let borrado = porHacer.borrar(argv.descripcion);
+        console.log(borrado);
+        break;
+
     default:
 
         console.log('Comando no reconocido');

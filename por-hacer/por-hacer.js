@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { lookupService } = require('dns');
 
 let listadoporhacer = []
 
@@ -62,8 +63,25 @@ const actualizar = (descripcion, completado = true) => {
 
 }
 
+const borrar = (descripcion) => {
+
+    cargarDB();
+
+    let nuevoListado = listadoporhacer.filter(tarea => tarea.descripcion !== descripcion);
+
+    if (listadoporhacer.length === nuevoListado.length) {
+        return false;
+    } else {
+        listadoporhacer = nuevoListado;
+        guardarDB();
+        return true;
+    }
+
+}
+
 module.exports = {
     crear,
     getListado,
-    actualizar
+    actualizar,
+    borrar
 }
